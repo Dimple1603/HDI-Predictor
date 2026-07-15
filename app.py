@@ -1,4 +1,10 @@
-from flask import Flask, render_template, request
+try:
+    from flask import Flask, render_template, request
+except ImportError as err:
+    raise ImportError(
+        "Flask is required to run this app. Install it with 'pip install flask'."
+    ) from err
+
 import joblib
 
 app = Flask(__name__)
